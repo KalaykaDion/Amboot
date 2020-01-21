@@ -19,16 +19,16 @@ import android.os.Environment;
 public class MainActivity extends AppCompatActivity {
     static final int READ_BLOCK_SIZE = 100;
 
+    final EditText textView = findViewById(R.id.editText);
+    final Button btn = findViewById(R.id.button);
+    final Button btn2 = findViewById(R.id.button2);
+    final Button btn3 = findViewById(R.id.button3);
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        final EditText textView = findViewById(R.id.editText);
-        final Button btn = findViewById(R.id.button);
-        final Button btn2 = findViewById(R.id.button2);
-        final Button btn3 = findViewById(R.id.button3);
 
         btn.setOnClickListener(
                 new View.OnClickListener() {
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    private static boolean isExternalStorageReadOnly() {
+    public static boolean isExternalStorageReadOnly() {
         String extStorageState = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(extStorageState)) {
             return true;
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    private static boolean isExternalStorageAvailable() {
+    public static boolean isExternalStorageAvailable() {
         String extStorageState = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED.equals(extStorageState)) {
             return true;
